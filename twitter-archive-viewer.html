@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Twitter Archive Viewer</title>
+<script>window.YTD = { tweet: {} }</script>
+<script src="tweet.js"></script>
+<style>
+  .tweet { border: 1px solid #eee; margin: 8px }
+  .full_text { padding: 8px }
+  .created_at { padding: 8px; color: #777 }
+</style>
+<body>
+<a href="https://adamlaryazilim.com" target="_blank">Adamlar Yazılım</a> <br/>
+<div id="root"></div>
+<script>
+  var renderTweet;
+  
+  for (const part of Object.values(window.YTD.tweet)) {
+	
+	
+	for (const tweets of Object.values(part)){
+		renderTweet += '<div class="tweet"><div class="full_text">' + tweets.tweet.full_text + '</div><div class="created_at">' + tweets.tweet.created_at + '</div></div>';
+	}
+	
+  }
+
+  document.getElementById('root').innerHTML = renderTweet;
+  
+</script>
